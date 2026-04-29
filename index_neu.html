@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Generali Unfall-Rechner</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/bootstrap-select.css">
+    <link rel="stylesheet" href="css/bootstrap-slider.min.css" type="text/css"/>
+	<link rel="stylesheet" href="css/amv-widget.css" type="text/css"/>
+	<link rel="stylesheet" href="css/amv-hww-extension.css" type="text/css"/>
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+	<![endif]-->
+	
+	<style>
+
+
+
+	</style>
+
+</head>
+
+<body>
+
+
+    <!-- Page Content -->
+    <div class="wrapper">
+    <div class="container">
+
+        <div class="row">
+            <div class="col-xs-12"><h2>Leistungsrechner Invalidität</h2></div>
+            <div class="col-xs-6" style="padding-left: 18px; padding-right: 10px">
+
+
+                <p>Invaliditäts-Grundsumme</p>
+                <div class="slider-container">
+                <input id="amvSlider" type="text" data-slider-min="30000" data-slider-max="250000" data-slider-step="1000" data-slider-value="40000" data-slider-tooltip="hide"/>
+                <br><br>
+                <div class="textbox grundsummeBox">
+                <span id="sliderValLabel" class="font-dark"><span id="sliderVal">40.000 €</span></span>
+                </div>
+                </div>
+                <p>Art der Gliedertaxe</p>
+                <group class="inline-radio">
+                    <div><input type="radio" name="type" id="type-1" value="0" checked><label for="type-1">reguläre Gliedertaxe</label></div>
+                    <div><input type="radio" name="type" id="type-2" value="1"><label for="type-2">verbesserte Gliedertaxe</label></div>
+                </group>
+
+                <p class="zwischen-head">Invaliditätsgrad</p>
+
+                <div class="select-group-container">
+                    <div id="select-group-1" class="input-group">
+                        <span class="input-group-btn">
+                            <button id="select1-button" class="btn btn-default" type="button">
+                                <span class="glyphicon glyphicon-remove-sign" aria-hidden="true"></span>
+                            </button>
+                        </span>
+                        <select id="select1" class="show-tick form-control" data-title=" " data-size="10" data-selectedOption="0" data-gliedId="0" data-groupId="0">
+                        </select>
+                    </div>
+
+                    <div id="select-group-2" class="input-group">
+                        <span class="input-group-btn">
+                            <button id="select2-button" class="btn btn-default" type="button">
+                                <span class="glyphicon glyphicon-remove-sign" aria-hidden="true"></span>
+                            </button>
+                        </span>
+                        <select id="select2" class="show-tick form-control" data-title=" " data-size="10" data-selectedOption="0" data-gliedId="0" data-groupId="0">
+                        </select>
+                    </div>
+
+                    <div id="select-group-3" class="input-group">
+                        <span class="input-group-btn">
+                            <button id="select3-button" class="btn btn-default" type="button">
+                                <span class="glyphicon glyphicon-remove-sign" aria-hidden="true"></span>
+                            </button>
+                        </span>
+                        <select id="select3" class="show-tick form-control" data-title=" " data-size="10" data-selectedOption="0" data-gliedId="0" data-groupId="0">
+                        </select>
+                    </div>
+
+                    <div id="select-group-4" class="input-group">
+                        <span class="input-group-btn">
+                            <button id="select4-button" class="btn btn-default" type="button">
+                                <span class="glyphicon glyphicon-remove-sign" aria-hidden="true"></span>
+                            </button>
+                        </span>
+                        <select id="select4" class="show-tick form-control" data-title=" " data-size="10" data-selectedOption="0" data-gliedId="0" data-groupId="0">
+                        </select>
+                    </div>
+
+                    <div id="select-group-5" class="input-group">
+                        <span class="input-group-btn">
+                            <button id="select5-button" class="btn btn-default" type="button">
+                                <span class="glyphicon glyphicon-remove-sign" aria-hidden="true"></span>
+                            </button>
+                        </span>
+                        <select id="select5" class="show-tick form-control" data-title=" " data-size="10" data-selectedOption="0" data-gliedId="0" data-groupId="0">
+                        </select>
+                    </div>
+                </div>
+
+                <p class="zwischen-head">Art der Progression</p>
+                    <div id="select-group-6" class="input-group full-width">
+                        <select id="select6" class="form-control form-control--reset js-progression-select select-arrow">
+                            <option value="225">225er</option>
+                            <option value="225plus">225er inkl. Mehrleistung</option>
+                            <option value="1000">1000er</option>
+                        </select>
+					</div>
+                <div class="textbox invaliditaetBox">
+                    <p class="font-dark">Invalidität <span id="invaliditaet">0</span>%</p>
+                </div>
+
+                <p class="zwischen-head thousand-text">Leistung bei verbesserter<br>Progression 1000% Plus</p>
+                <div class="textbox leistungBox">
+                    <p class="font-dark"><span id="leistung">0</span> €</p>
+                    <p id="textMehrleistung">(inkl. Mehrleistung 100.000€<sup>*</sup>)</p>
+                </div>
+
+                <p id="textUnfallAktiv"><sup>*</sup>bei UNFALL-AKTIV</p>
+
+            </div>
+            <div class="col-xs-6" style="position: relative">
+                <div class="puppet-container">
+                    <!-- GLieder der Arme -->
+                    <div class="glied-container">
+                        <div class="glied glied-1"><img src="img-glieder/glied-1.png"></div>
+                    </div>
+                    <div class="glied-container">
+                        <div class="glied glied-2"><img src="img-glieder/glied-2.png"></div>
+                    </div>
+                    <div class="glied-container">
+                        <div class="glied glied-3"><img src="img-glieder/glied-3.png"></div>
+                    </div>
+                    <div class="glied-container">
+                        <div class="glied glied-4"><img src="img-glieder/glied-4.png"></div>
+                    </div>
+                    <div class="glied-container">
+                        <div class="glied glied-5"><img src="img-glieder/glied-5.png"></div>
+                    </div>
+                    <div class="glied-container">
+                        <div class="glied glied-6"><img src="img-glieder/glied-6.png"></div>
+                    </div>
+                    <div class="glied-container">
+                        <div class="glied glied-7"><img src="img-glieder/glied-7.png"></div>
+                    </div>
+                    <div class="glied-container">
+                        <div class="glied glied-8"><img src="img-glieder/glied-8.png"></div>
+                    </div>
+                    <div class="glied-container">
+                        <div class="glied glied-9"><img src="img-glieder/glied-9.png"></div>
+                    </div>
+                    <div class="glied-container">
+                        <div class="glied glied-10"><img src="img-glieder/glied-10.png"></div>
+                    </div>
+                    <div class="glied-container">
+                        <div class="glied glied-11"><img src="img-glieder/glied-11.png"></div>
+                    </div>
+                    <div class="glied-container">
+                        <div class="glied glied-12"><img src="img-glieder/glied-12.png"></div>
+                    </div>
+                    <div class="glied-container">
+                        <div class="glied glied-13"><img src="img-glieder/glied-13.png"></div>
+                    </div>
+                    <div class="glied-container">
+                        <div class="glied glied-14"><img src="img-glieder/glied-14.png"></div>
+                    </div>
+                    <div class="glied-container">
+                        <div class="glied glied-15"><img src="img-glieder/glied-15.png"></div>
+                    </div>
+                    <div class="glied-container">
+                        <div class="glied glied-16"><img src="img-glieder/glied-16.png"></div>
+                    </div>
+                    <div class="glied-container">
+                        <div class="glied glied-17"><img src="img-glieder/glied-17.png"></div>
+                    </div>
+                    <div class="glied-container">
+                        <div class="glied glied-18"><img src="img-glieder/glied-18.png"></div>
+                    </div>
+
+                    <!-- Glieder der Beine -->
+                    <div class="glied-container">
+                        <div class="glied glied-19"><img src="img-glieder/glied-19.png"></div>
+                    </div>
+                    <div class="glied-container">
+                        <div class="glied glied-20"><img src="img-glieder/glied-20.png"></div>
+                    </div>
+                    <div class="glied-container">
+                        <div class="glied glied-21"><img src="img-glieder/glied-21.png"></div>
+                    </div>
+                    <div class="glied-container">
+                        <div class="glied glied-22"><img src="img-glieder/glied-22.png"></div>
+                    </div>
+                    <div class="glied-container">
+                        <div class="glied glied-23"><img src="img-glieder/glied-23.png"></div>
+                    </div>
+                    <div class="glied-container">
+                        <div class="glied glied-24"><img src="img-glieder/glied-24.png"></div>
+                    </div>
+                    <div class="glied-container">
+                        <div class="glied glied-25"><img src="img-glieder/glied-25.png"></div>
+                    </div>
+                    <div class="glied-container">
+                        <div class="glied glied-26"><img src="img-glieder/glied-26.png"></div>
+                    </div>
+                    <div class="glied-container">
+                        <div class="glied glied-27"><img src="img-glieder/glied-27.png"></div>
+                    </div>
+                    <div class="glied-container">
+                        <div class="glied glied-28"><img src="img-glieder/glied-28.png"></div>
+                    </div>
+                    <div class="glied-container">
+                        <div class="glied glied-29"><img src="img-glieder/glied-29.png"></div>
+                    </div>
+                    <div class="glied-container">
+                        <div class="glied glied-30"><img src="img-glieder/glied-30.png"></div>
+                    </div>
+                    <div class="glied-container">
+                        <div class="glied glied-31"><img src="img-glieder/glied-31.png"></div>
+                    </div>
+                    <div class="glied-container">
+                        <div class="glied glied-32"><img src="img-glieder/glied-32.png"></div>
+                    </div>
+                    <div class="glied-container">
+                        <div class="glied glied-33"><img src="img-glieder/glied-33.png"></div>
+                    </div>
+                    <div class="glied-container">
+                        <div class="glied glied-34"><img src="img-glieder/glied-34.png"></div>
+                    </div>
+                    <div class="glied-container">
+                        <div class="glied glied-35"><img src="img-glieder/glied-35.png"></div>
+                    </div>
+                    <div class="glied-container">
+                        <div class="glied glied-36"><img src="img-glieder/glied-36.png"></div>
+                    </div>
+                    <div class="glied-container">
+                        <div class="glied glied-37"><img src="img-glieder/glied-37.png"></div>
+                    </div>
+                    <div class="glied-container">
+                        <div class="glied glied-38"><img src="img-glieder/glied-38.png"></div>
+                    </div>
+
+                    <!-- Kopf -->
+                    <div class="glied-container">
+                        <div class="glied glied-39"><img src="img-glieder/glied-39.png"></div>
+                    </div>
+                    <div class="glied-container">
+                        <div class="glied glied-40"><img src="img-glieder/glied-40.png"></div>
+                    </div>
+                    <div class="glied-container">
+                        <div class="glied glied-41"><img src="img-glieder/glied-41.png"></div>
+                    </div>
+                    <div class="glied-container">
+                        <div class="glied glied-42"><img src="img-glieder/glied-42.png"></div>
+                    </div>
+                    <div class="glied-container">
+                        <div class="glied glied-43"><img src="img-glieder/glied-43.png"></div>
+                    </div>
+                    <div class="glied-container">
+                        <div class="glied glied-44"><img src="img-glieder/glied-44.png"></div>
+                    </div>
+                    <div class="glied-container">
+                        <div class="glied glied-45"><img src="img-glieder/glied-45.png"></div>
+                    </div>
+
+                    <!-- Nieren -->
+                    <div class="glied-container">
+                        <div class="glied glied-46"><img src="img-glieder/glied-46.png"></div>
+                    </div>
+                    <div class="glied-container">
+                        <div class="glied glied-47"><img src="img-glieder/glied-47.png"></div>
+                    </div>
+
+                    <!-- Milz -->
+                    <div class="glied-container">
+                        <div class="glied glied-48"><img src="img-glieder/glied-48.png"></div>
+                    </div>
+                </div>
+
+
+                <div id="lupe-hand-L" class="lupe">
+                    <img src="img-glieder/lupe-hand-L.png">
+                    <div class="glied glied-big glied-big-group-1"><img src="img-glieder/group-1-big.png"></div>
+                    <div class="glied glied-5"><img src="img-glieder/glied-5-big.png"></div>
+                    <div class="glied glied-6"><img src="img-glieder/glied-6-big.png"></div>
+                    <div class="glied glied-7"><img src="img-glieder/glied-7-big.png"></div>
+                    <div class="glied glied-8"><img src="img-glieder/glied-8-big.png"></div>
+                    <div class="glied glied-9"><img src="img-glieder/glied-9-big.png"></div>
+
+                    <div class="glied glied-4"><img src="img-glieder/glied-4-big.png"></div>
+                </div>
+
+                <div id="lupe-hand-R" class="lupe">
+                    <img src="img-glieder/lupe-hand-R.png">
+                    <div class="glied glied-big glied-big-group-2"><img src="img-glieder/group-2-big.png"></div>
+                    <div class="glied glied-14"><img src="img-glieder/glied-14-big.png"></div>
+                    <div class="glied glied-15"><img src="img-glieder/glied-15-big.png"></div>
+                    <div class="glied glied-16"><img src="img-glieder/glied-16-big.png"></div>
+                    <div class="glied glied-17"><img src="img-glieder/glied-17-big.png"></div>
+                    <div class="glied glied-18"><img src="img-glieder/glied-18-big.png"></div>
+
+                    <div class="glied glied-13"><img src="img-glieder/glied-13-big.png"></div>
+                </div>
+
+                <div id="lupe-fuss-L" class="lupe">
+                    <img src="img-glieder/lupe-fuss-L.png">
+                    <div class="glied glied-big glied-big-group-5"><img src="img-glieder/group-5-big.png"></div>
+                    <div class="glied glied-24"><img src="img-glieder/glied-24-big.png"></div>
+                    <div class="glied glied-25"><img src="img-glieder/glied-25-big.png"></div>
+                    <div class="glied glied-26"><img src="img-glieder/glied-26-big.png"></div>
+                    <div class="glied glied-27"><img src="img-glieder/glied-27-big.png"></div>
+                    <div class="glied glied-28"><img src="img-glieder/glied-28-big.png"></div>
+
+                    <div class="glied glied-23"><img src="img-glieder/glied-23-big.png"></div>
+                </div>
+
+                <div id="lupe-fuss-R" class="lupe">
+                    <img src="img-glieder/lupe-fuss-R.png">
+                    <div class="glied glied-big glied-big-group-6"><img src="img-glieder/group-6-big.png"></div>
+                    <div class="glied glied-34"><img src="img-glieder/glied-34-big.png"></div>
+                    <div class="glied glied-35"><img src="img-glieder/glied-35-big.png"></div>
+                    <div class="glied glied-36"><img src="img-glieder/glied-36-big.png"></div>
+                    <div class="glied glied-37"><img src="img-glieder/glied-37-big.png"></div>
+                    <div class="glied glied-38"><img src="img-glieder/glied-38-big.png"></div>
+
+                    <div class="glied glied-33"><img src="img-glieder/glied-33-big.png"></div>
+                </div>
+
+                <div id="lupe-kopf" class="lupe">
+                    <img src="img-glieder/lupe-kopf.png">
+                    <div class="glied glied-39"><img src="img-glieder/glied-39-big.png"></div>
+                    <div class="glied glied-40"><img src="img-glieder/glied-40-big.png"></div>
+                    <div class="glied glied-41"><img src="img-glieder/glied-41-big.png"></div>
+                    <div class="glied glied-42"><img src="img-glieder/glied-42-big.png"></div>
+                    <div class="glied glied-43"><img src="img-glieder/glied-43-big.png"></div>
+                    <div class="glied glied-44"><img src="img-glieder/glied-44-big.png"></div>
+                    <div class="glied glied-45"><img src="img-glieder/glied-45-big.png"></div>
+                </div>
+
+
+
+                <div id="mainmap-container" class="map-container">
+                    <img id="mainmap" src="img/transparent.png" class="map" usemap="#MainMap">
+                </div>
+
+                <div id="lupe-hand-L-map-container" class="map-container lupe-container">
+                    <img src="img/transparent.png" class="map" usemap="#hand-L-map" style="left:0">
+                </div>
+
+                <div id="lupe-hand-R-map-container" class="map-container lupe-container">
+                    <img src="img/transparent.png" class="map" usemap="#hand-R-map" style="left:0">
+                </div>
+
+                <div id="lupe-fuss-L-map-container" class="map-container lupe-container">
+                    <img src="img/transparent.png" class="map" usemap="#fuss-L-map" style="left:0">
+                </div>
+
+                <div id="lupe-fuss-R-map-container" class="map-container lupe-container">
+                    <img src="img/transparent.png" class="map" usemap="#fuss-R-map" style="left:0">
+                </div>
+
+                <div id="lupe-kopf-map-container" class="map-container lupe-container">
+                    <img src="img/transparent.png" class="map" usemap="#kopf-map" style="left:0">
+                </div>
+
+            </div>
+        </div>
+        <!-- /.row -->
+
+        <div class="alert-to-many">
+            <p>Sie können leider nur bis zu 5 Glieder oder Körperfunktionen auswählen.</p>
+        </div>
+
+    </div>
+    <!-- /.container -->
+    </div>
+    <!-- /.wrapper -->
+
+    <map name="MainMap">
+        <!-- Arme -->
+        <area shape="poly" id="glied-1-area" class="glied-area" coords="102,81,93,114,74,114,72,98,82,84" href="#">
+        <area shape="poly" id="glied-2-area" class="glied-area" coords="59,166,83,167,87,157,95,142,97,124,95,118,74,116,67,145" href="#">
+        <area shape="poly" id="glied-3-area" class="glied-area" coords="59,169,83,169,73,192,58,213,45,207" href="#">
+        <area shape="circle" id="lupe-hand-L-area" coords="40,240,31" class="lupe-area" href="#">
+
+        <area shape="poly" id="glied-10-area" class="glied-area" coords="163,84,169,101,168,114,191,114,192,99,181,84" href="#">
+        <area shape="poly" id="glied-11-area" class="glied-area" coords="169,117,190,117,205,167,180,166,170,140" href="#">
+        <area shape="poly" id="glied-12-area" class="glied-area" coords="181,168,204,169,219,207,205,211,191,192" href="#">
+        <area shape="circle" id="lupe-hand-R-area" coords="224,240,32" class="lupe-area" href="#">
+
+        <!-- Beine -->
+        <area shape="poly" id="glied-19-area" class="glied-area" coords="91,252,95,282,111,282,127,281,131,257,131,256" href="#">
+        <area shape="poly" id="glied-20-area" class="glied-area" coords="96,284,128,283,124,338,95,343" href="#">
+        <area shape="poly" id="glied-21-area" class="glied-area" coords="96,345,126,340,125,365,97,363" href="#">
+        <area shape="poly" id="glied-22-area" class="glied-area" coords="99,365,123,367,120,401,105,398" href="#">
+        <area shape="circle" id="lupe-fuss-L-area" coords="98,429,32" class="lupe-area" href="#">
+
+        <area shape="poly" id="glied-29-area" class="glied-area" coords="132,257,135,282,169,282,173,252" href="#">
+        <area shape="poly" id="glied-30-area" class="glied-area" coords="136,283,169,284,169,343,142,339" href="#">
+        <area shape="poly" id="glied-31-area" class="glied-area" coords="143,341,169,344,166,364,140,364" href="#">
+        <area shape="poly" id="glied-32-area" class="glied-area" coords="140,364,165,365,158,398,140,403" href="#">
+        <area shape="circle" id="lupe-fuss-R-area" coords="167,430,32" class="lupe-area" href="#">
+
+        <!-- Kopf -->
+        <area shape="circle" id="lupe-kopf-area" coords="136,51,34" class="lupe-area" href="#">
+
+        <!-- Nieren -->
+        <area shape="poly" id="glied-46-area" class="glied-area" coords="104,175,126,176,122,215,99,212" href="#">
+        <area shape="poly" id="glied-47-area" class="glied-area" coords="138,176,158,176,164,211,138,215" href="#">
+
+        <!-- Milz -->
+        <area shape="poly" id="glied-48-area" class="glied-area" coords="141,128,165,128,165,160,144,160" href="#">
+    </map>
+
+    <map name="hand-L-map" id="hand-L-map">
+        <area shape="poly" id="glied-5-area" class="glied-area" coords="96,176,79,207,60,217,35,208" href="#">
+        <area shape="poly" id="glied-6-area" class="glied-area" coords="79,228,88,243,54,280,44,269" href="#">
+        <area shape="poly" id="glied-7-area" class="glied-area" coords="86,248,102,251,81,300,67,294" href="#">
+        <area shape="poly" id="glied-8-area" class="glied-area" coords="104,252,121,254,107,304,95,301" href="#">
+        <area shape="poly" id="glied-9-area" class="glied-area" coords="127,253,137,254,138,291,123,294" href="#">
+        <area shape="poly" id="glied-4-area" class="glied-area" coords="116,167,154,183,151,216,138,250,89,244,83,226,85,204,97,176" href="#">
+
+        <area shape="circle" id="lupe-hand-L-close" class="lupe-close-area" coords="202,234,19" href="#">
+    </map>
+
+    <map name="hand-R-map" id="hand-R-map">
+        <area shape="poly" id="glied-14-area" class="glied-area" coords="149,177,163,205,196,215,211,207" href="#">
+        <area shape="poly" id="glied-15-area" class="glied-area" coords="156,239,167,229,200,270,190,277" href="#">
+        <area shape="poly" id="glied-16-area" class="glied-area" coords="145,251,159,248,182,295,171,299" href="#">
+        <area shape="poly" id="glied-17-area" class="glied-area" coords="127,254,137,252,154,299,140,302" href="#">
+        <area shape="poly" id="glied-18-area" class="glied-area" coords="109,254,121,255,123,293,108,295" href="#">
+        <area shape="poly" id="glied-13-area" class="glied-area" coords="127,168,143,178,160,209,160,227,144,243,130,245,109,249,87,193,92,179" href="#">
+
+        <area shape="circle" id="lupe-hand-R-close" class="lupe-close-area" coords="243,234,19" href="#">
+    </map>
+
+    <map name="fuss-L-map" id="fuss-L-map">
+        <area shape="poly" id="glied-24-area" class="glied-area" coords="134,401,152,404,153,425,133,429" href="#">
+        <area shape="poly" id="glied-25-area" class="glied-area" coords="121,398,130,401,130,427,117,423" href="#">
+        <area shape="poly" id="glied-26-area" class="glied-area" coords="112,394,118,397,115,422,105,421" href="#">
+        <area shape="poly" id="glied-27-area" class="glied-area" coords="100,392,109,395,103,416,94,413" href="#">
+        <area shape="poly" id="glied-28-area" class="glied-area" coords="88,389,98,392,94,409,85,407" href="#">
+        <area shape="poly" id="glied-23-area" class="glied-area" coords="157,302,168,316,153,397,133,397,89,387,109,352,107,329,113,296" href="#">
+        <area shape="circle" id="lupe-fuss-L-close" class="lupe-close-area" coords="223,357,19" href="#">
+    </map>
+
+    <map name="fuss-R-map" id="fuss-R-map">
+        <area shape="poly" id="glied-34-area" class="glied-area" coords="113,402,132,402,133,427,113,427" href="#">
+        <area shape="poly" id="glied-35-area" class="glied-area" coords="135,401,145,401,148,426,137,426" href="#">
+        <area shape="poly" id="glied-36-area" class="glied-area" coords="146,399,154,398,161,420,151,426" href="#">
+        <area shape="poly" id="glied-37-area" class="glied-area" coords="157,396,163,393,171,412,162,417" href="#">
+        <area shape="poly" id="glied-38-area" class="glied-area" coords="166,392,178,389,183,404,173,410" href="#">
+        <area shape="poly" id="glied-33-area" class="glied-area" coords="156,335,159,361,173,386,145,396,113,396,103,333,107,301,151,298" href="#">
+        <area shape="circle" id="lupe-fuss-R-close" class="lupe-close-area" coords="242,357,19" href="#">
+    </map>
+
+    <map name="kopf-map" id="kopf-map">
+        <!-- Ohren -->
+        <area shape="poly" id="glied-42-area" class="glied-area" coords="176,70,191,71,186,121,168,122" href="#">
+        <!-- Augen -->
+        <area shape="poly" id="glied-39-area" class="glied-area" coords="89,72,116,73,115,88,91,89" href="#">
+        <area shape="poly" id="glied-40-area" class="glied-area" coords="137,73,166,73,163,89,140,88" href="#">
+        <!-- Nase -->
+        <area shape="poly" id="glied-44-area" class="glied-area" coords="120,74,118,91,110,108,138,110,135,93,132,73" href="#">
+        <!-- Mund -->
+        <area shape="poly" id="glied-45-area" class="glied-area" coords="107,114,144,114,145,133,106,135" href="#">
+        <!-- Hals -->
+        <area shape="circle" id="glied-43-area" class="glied-area" coords="125,189,18" href="#">
+        <!-- Close -->
+        <area shape="circle" id="lupe-kopf-close" class="lupe-close-area" coords="228,116,17" href="#">
+    </map>
+
+    <!-- jQuery Version 1.11.1 -->
+    <script src="js/jquery.js"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+
+    <script type="text/javascript" src="js/bootstrap-slider.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap-select.js"></script>
+
+    <script type="text/javascript" src="js/glieder.js"></script>
+    <script type="text/javascript" src="js/progression.js"></script>
+    <script type="text/javascript" src="js/groups.js"></script>
+    <script type="text/javascript" src="js/options.js"></script>
+    <script type="text/javascript" src="js/amv-widget.js"></script>
+
+    <script type="text/javascript" src="AppleClasses/AppleWidget.js"> </script>
+
+</body>
+
+</html>
